@@ -24,19 +24,42 @@
     <?php
 
     $wow=[
-        'Nain'=>'Magni',
+        'Nain'=>'Magni',//association clef => valeur
         'Tauren'=>'Cairne',
         'Elfe'=>'Tyrande',
         'Mort-Vivant'=>'Sylvanas',
         'Humain'=>'Arthas'
     ];
 
-        echo 'Le dirigeant actuel de Stormwind est'. ' '. $wow['Humain'];
+        echo 'Le dirigeant actuel de Stormwind est'. ' '. $wow['Humain'];//récupérer avec un clef
+
+        foreach($wow as $nom) {// je récupère que le nom car il parcours toutes les key
+            echo 'Le dirigeant actuel est'. ' '.$nom. '<br />';
+            var_dump($wow);
+        }
+
 
     ?>
-
-
     </h1>
 
+    <h1>Exercice Pokemon</h1>
+ 
+    <p>
+        <?php
+
+        $pokémons=[
+            'eau'=>'Carapuce',
+            'feu'=>'Salamèche',
+            'plante'=>'Bulbizarre',
+            'électrique'=>'Pikachu'
+        ];
+
+            echo 'Le pokémon est '. $pokémons['électrique']. '<br />';
+
+            foreach($pokémons as $nomPokemon) {
+                echo $nomPokemon.','. ' '. 'je te choisi !'. '<br />';
+            }
+        ?>
+    </p>
 </body>
 </html>
