@@ -7,8 +7,8 @@
 </head>
 <body>
     
-    <h1>Exo Tableau WoW :
-        
+    <h1>Exo Tableau WoW :</h1>
+        <p>
         <!-- <?php
         // $noms =['Magni','Cairne','Tyrande','Sylvanas','Arthas'];
         // $races =['Nain','Tauren','Elfe','Mort_vivant','Humain'];
@@ -31,18 +31,19 @@
         'Humain'=>'Arthas'
     ];
 
-        echo 'Le dirigeant actuel de Stormwind est'. ' '. $wow['Humain'];//récupérer avec un clef
+        echo 'Le dirigeant actuel de Stormwind est'. ' '. $wow['Humain']. '.' . '<br />';//récupérer avec un clef et affiche sa valeur
 
-        foreach($wow as $nom) {// je récupère que le nom car il parcours toutes les key
-            echo 'Le dirigeant actuel est'. ' '.$nom. '<br />';
+        foreach($wow as $nom) {// je récupère que le nom car il parcours toutes les key et en affiche sa valeur
+            echo 'Le dirigeant actuel est'. ' '.$nom . '.' . '<br />';
             // var_dump($wow);
         }
 
 
     ?>
-    </h1>
+    </p>
 
-    <h1>Exercice Pokemon</h1>
+    <h1>Exercice Pokemon :</h1>
+
  
     <p>
         <?php
@@ -54,7 +55,7 @@
             'électrique'=>'Pikachu'
         ];
 
-            echo 'Le pokémon est '. $pokémons['électrique']. '<br />';
+            echo 'Le pokémon est '. $pokémons['électrique']. '...' . '<br />';
 
             foreach($pokémons as $nomPokemon) {
                 echo $nomPokemon.','. ' '. 'je te choisi !'. '<br />';
@@ -62,7 +63,7 @@
         ?>
     </p>
 
-    <h1>Formulaire</h1>
+    <h1>Formulaire :</h1>
     
     <form action="" method="POST" enctype="multipart/form-data">
             <label for="nom">Nom :</label>
@@ -85,10 +86,15 @@
         $prenom = htmlspecialchars($_POST['prenom']);
         $email = htmlspecialchars($_POST['email']);
         $password = htmlspecialchars($_POST['password']);
-        $fichier = htmlspecialchars($_POST['file']);
+        $fichier = $_FILES['file'];
+        $FILES_UPLOAD = $_FILES['file']['tmp_name'];
+
         echo 'Bonjour ' . $prenom . " " . $nom;
-        var_dump(($_FILES['file']));
+        var_dump($_FILES['file']['tmp_name']);// affiche toutes les données du fichier DL sous forme d'un tableau.
+        pathinfo('nom_de_fichier');
+        move_uploaded_file($FILES_UPLOAD['file']['tpm_name'], 'uploads/' . $FILES_UPLOAD);
     }
+
     ?>
 </body>
 </html>
