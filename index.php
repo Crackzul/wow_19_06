@@ -35,7 +35,7 @@
 
         foreach($wow as $nom) {// je récupère que le nom car il parcours toutes les key
             echo 'Le dirigeant actuel est'. ' '.$nom. '<br />';
-            var_dump($wow);
+            // var_dump($wow);
         }
 
 
@@ -61,5 +61,34 @@
             }
         ?>
     </p>
+
+    <h1>Formulaire</h1>
+    
+    <form action="" method="POST" enctype="multipart/form-data">
+            <label for="nom">Nom :</label>
+            <input type="text" name="nom" id="nom" required="required">
+            <label for="prenom">Prenom :</label>
+            <input type="text" name="prenom" id="prenom" required="required">
+            <label for="email">Email :</label>
+            <input type="email" name="email" id="email" required="required">
+            <label for="password">Mot de passe :</label>
+            <input type="password" name="password" id="password" required="required">
+            <label for="file">Fichier à DL</label>
+            <input type="file" name="file" id="file" required>
+            <button>Envoyer</button>
+    </form>
+    <?php
+    if (isset($_POST['nom']) && isset($_POST['prenom']) && isset($_POST['email']) && isset($_POST['password'])) {
+
+        // var_dump($_POST); // pour récupérer tout les champs de mon formulaire en méthode POST
+        $nom = htmlspecialchars($_POST['nom']); // j'identifie chaque champs de mon formulaire par une variable
+        $prenom = htmlspecialchars($_POST['prenom']);
+        $email = htmlspecialchars($_POST['email']);
+        $password = htmlspecialchars($_POST['password']);
+        $fichier = htmlspecialchars($_POST['file']);
+        echo 'Bonjour ' . $prenom . " " . $nom;
+        var_dump(($_FILES['file']));
+    }
+    ?>
 </body>
 </html>
